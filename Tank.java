@@ -6,7 +6,9 @@ import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 
 public class Tank extends Unit {
+    Bullet bullet;
     static  int h=80;
+    int x=200;
     public Tank(Texture img) {
         super(img);
     }
@@ -14,6 +16,13 @@ public class Tank extends Unit {
     @Override
     public void draw(SpriteBatch batch) {
         batch.draw(img, x, y, h, h );
+    }
+
+    public int getX() {
+        return x;
+    }
+    public int getY() {
+        return y;
     }
 
     @Override
@@ -26,7 +35,6 @@ public class Tank extends Unit {
 
     @Override
     public void shot() {
-        if(Gdx.input.isKeyPressed(Input.Keys.SPACE)) new Bullet(img, this);
 
     }
 }

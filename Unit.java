@@ -5,7 +5,7 @@ import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 
 public abstract class Unit {
     protected Texture img;
-    protected  int x=0, y=0;
+    protected  int x, y, h;
 
     public Unit(Texture img){
         this.img= img;
@@ -16,4 +16,6 @@ public abstract class Unit {
         img.dispose();
     }
     public  abstract void shot();
+
+
 }
