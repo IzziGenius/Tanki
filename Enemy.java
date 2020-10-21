@@ -29,7 +29,7 @@ public class Enemy extends Unit {
     }
     public static Enemy spawn(Texture img){
         Enemy enemy= new Enemy(img);
-        enemy.x= random.nextInt(480);
+        enemy.x= random.nextInt(450);
         enemy.y=480;
         return enemy;
     }
@@ -46,4 +46,5 @@ public class Enemy extends Unit {
         };
 
     }
+
 }
