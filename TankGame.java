@@ -21,6 +21,9 @@ public class TankGame extends ApplicationAdapter {
 	Lamp lamp1;
 	Lamp lamp2;
 	Random random;
+	EnemyList enemyList=null;
+
+
 
 
 	@Override
@@ -29,6 +32,7 @@ public class TankGame extends ApplicationAdapter {
 		tank= new Tank(new Texture("tank.png"));
 		img= new Texture("robot.png");
 		enemy= Enemy.spawn(img);
+		enemyList= new EnemyList(img);
 		lamp1=Lamp.spawn(new Texture("left.png"),10, 500);
 		lamp2=Lamp.spawn(new Texture("rigth.png"), 470, 500);
 		bullet= new Bullet(new Texture("roket.png"), tank);
@@ -43,9 +47,10 @@ public class TankGame extends ApplicationAdapter {
 
 	@Override
 	public void render () {
+		enemyList.move(batch);
 		enemy.move();
 		tank.move();
-		enemy.shot();
+		enemy.shot(batch);
 		bullet.move();
 		bullet2.move();
 		lamp1.move();
@@ -53,21 +58,24 @@ public class TankGame extends ApplicationAdapter {
 		//if(bullet.explosion(enemy))
 		if(Gdx.input.isKeyJustPressed(Input.Keys.SPACE))
 			bullet= new Bullet(new Texture("roket.png"), tank);
-		if(enemy.getY()==0) {enemy= Enemy.spawn(img);}
+		/*if(lamp1.getY()==300)
+			bullet2= new Bullet(new Texture("roket.png"), enemy);*/
 		if(lamp1.getY()==0)
 			lamp1=Lamp.spawn(new Texture("left.png"),10, 500);
 		if(lamp2.getY()==0)
 			lamp2=Lamp.spawn(new Texture("rigth.png"),470, 500);
+		if(lamp2.getY()==100||lamp1.getY()==187)		//здесь условия, при которых генерятся новые враги
+			enemyList.spawn();
 		Gdx.gl.glClearColor(0, 0.2f, 0.5f, 1);
 		Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
 		batch.begin();
 		tank.draw(batch);
 		enemy.draw(batch);
-
 		bullet.draw(batch);
 		bullet2.draw(batch);
 		lamp1.draw(batch);
 		lamp2.draw(batch);
+		enemyList.draw(batch);
 		batch.end();
 	}
 	

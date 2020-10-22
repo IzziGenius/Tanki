@@ -15,7 +15,8 @@ public abstract class Unit {
     public  void dispose(){
         img.dispose();
     }
-    public  abstract void shot();
+    public abstract void shot(SpriteBatch batch);
+
 
 
 }

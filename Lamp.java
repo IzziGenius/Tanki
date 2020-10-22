@@ -35,7 +35,9 @@ public class Lamp extends  Unit {
     }
 
     @Override
-    public void shot() {
+    public void shot(SpriteBatch batch) {
 
     }
+
+
 }
