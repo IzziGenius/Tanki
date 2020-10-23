@@ -29,8 +29,9 @@ public class Tank extends Unit {
     public void move() {  //позволяет двагаться налево-направо
         if(Gdx.input.isKeyPressed(Input.Keys.LEFT)) x -= 200 * Gdx.graphics.getDeltaTime();
         if(Gdx.input.isKeyPressed(Input.Keys.RIGHT)) x += 200 * Gdx.graphics.getDeltaTime();
-        if(x < 0) x = 0;
-        if(x > 480 - 64) x = 480 - 64;
+        if(x < 90) x = 90;      //ограничения для передвижения танка
+        if(x > 395) x = 395;
+
     }
 
     @Override

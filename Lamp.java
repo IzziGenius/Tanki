@@ -5,7 +5,7 @@ import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import java.util.Random;
 
 public class Lamp extends  Unit {
-    int h=40, x, y;
+    int h=100, x, y;
     Random random; //привязать к координатам появления
 
 
@@ -29,6 +29,7 @@ public class Lamp extends  Unit {
         batch.draw(img, this.x, this.y, h, h);
     }
 
+
     @Override
     public void move() {
         y-=1;
@@ -37,6 +38,9 @@ public class Lamp extends  Unit {
     @Override
     public void shot(SpriteBatch batch) {
 
+    }
+    public boolean isVisible(){
+        return x>0;
     }
 
 

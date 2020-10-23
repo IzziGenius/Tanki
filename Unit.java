@@ -16,6 +16,10 @@ public abstract class Unit {
         img.dispose();
     }
     public abstract void shot(SpriteBatch batch);
+    public  int getX() { return x; }
+    public int getY() {
+        return y;
+    }
 
 
 

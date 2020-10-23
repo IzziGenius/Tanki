@@ -29,7 +29,7 @@ public class Enemy extends Unit {
         y-=1;
     }
     public static Enemy spawn(Texture img){
-        Enemy enemy= new Enemy(img, random.nextInt(460));
+        Enemy enemy= new Enemy(img, (random.nextInt(300)+80)); //координата для спауна роботов
         enemy.y=500;
         return enemy;
     }

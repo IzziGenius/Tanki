@@ -11,7 +11,7 @@ Sound shot= Gdx.audio.newSound(Gdx.files.internal("shot.mp3")); //звук вы�
     public Bullet(Texture img, Tank tank) {
         super(img);
         shot.play();
-        this.x= tank.getX()+tank.h/2;
+        this.x= tank.getX()+(tank.h/2-9);
         this.y=tank.getY()+tank.h;
         dx=3;
     }
