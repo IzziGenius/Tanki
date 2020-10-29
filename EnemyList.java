@@ -2,14 +2,12 @@ package com.mygdx.game;
 
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
-import java.util.LinkedList;
-import java.util.Random;
+import com.badlogic.gdx.math.Rectangle;
+import java.util.ArrayList;
 
 public class EnemyList {
-    Texture img;
-    Random random;
-    Enemy enemy;
-    LinkedList<Enemy> list= new LinkedList<Enemy>();
+  Texture img;
+    ArrayList<Enemy> list= new ArrayList<Enemy>();
 
     public EnemyList(Texture img) {
         this.img = img;
@@ -19,10 +17,22 @@ public class EnemyList {
             e.draw(batch);
         }
     }
+
+    public void touch( Unit unit) {
+        boolean x;
+        for (Unit a : list) {
+            Rectangle robot = a.getRectangle();
+            Rectangle raketa = unit.getRectangle();
+            if(robot.overlaps(raketa))
+                a.x=-10;
+        }
+    }
+
     public void move(SpriteBatch batch){
         for(Enemy e:list){
             e.move();
         }
+
         for (int i = 0; i <list.size() ; i++) {
             if(!(list.get(i).isVisible()))
                 list.remove(i);
@@ -31,4 +41,10 @@ public class EnemyList {
     public  void spawn(){
             list.add(Enemy.spawn(img));
     }
-}
+
+
+    }
+
+
+
+

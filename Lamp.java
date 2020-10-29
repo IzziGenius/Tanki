@@ -2,6 +2,8 @@ package com.mygdx.game;
 
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
+
+import java.util.ArrayList;
 import java.util.Random;
 
 public class Lamp extends  Unit {
@@ -22,6 +24,11 @@ public class Lamp extends  Unit {
 
     public int getY() {
         return y;
+    }
+
+    @Override
+    public void touch(Unit unit) {
+
     }
 
     @Override

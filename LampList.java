@@ -4,12 +4,10 @@ import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 
 import java.util.LinkedList;
-import java.util.Random;
+
 
 public class LampList {
     Texture img;
-    Random random;
-    Lamp lamp;
     LinkedList<Lamp> list= new LinkedList<Lamp>();
 
     public LampList(Lamp... lamp) {

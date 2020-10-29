@@ -4,6 +4,9 @@ import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.audio.Sound;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
+import com.badlogic.gdx.math.Rectangle;
+
+import java.util.ArrayList;
 
 public class Bullet extends  Unit {
    int h=15, x, y, dx;
@@ -26,6 +29,9 @@ Sound shot= Gdx.audio.newSound(Gdx.files.internal("shot.mp3")); //звук вы�
     public int getY() {
         return y;
     }
+    public int getX() {
+        return x;
+    }
 
     @Override
     public void draw(SpriteBatch batch) {
@@ -42,11 +48,13 @@ Sound shot= Gdx.audio.newSound(Gdx.files.internal("shot.mp3")); //звук вы�
 
     }
 
-
-    public boolean explosion(Enemy enemy) { //метод, позволяющий уничтожать роботов
-        int r1= enemy.getY();
-        int r2=this.getY();
-        if(r1==r1)return true;
-        else return  false;
+    public Rectangle getRectangle(){						//метод, необходимый для получения координат. применялся в методе eat для сравнения координат яблока и головы
+        return new Rectangle(x, y, h, h);
     }
+
+    @Override
+    public void touch( Unit unit) {
+
+    }
+
 }

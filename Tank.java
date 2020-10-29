@@ -26,6 +26,11 @@ public class Tank extends Unit {
     }
 
     @Override
+    public void touch(Unit unit) {
+
+    }
+
+    @Override
     public void move() {  //позволяет двагаться налево-направо
         if(Gdx.input.isKeyPressed(Input.Keys.LEFT)) x -= 200 * Gdx.graphics.getDeltaTime();
         if(Gdx.input.isKeyPressed(Input.Keys.RIGHT)) x += 200 * Gdx.graphics.getDeltaTime();
